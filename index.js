@@ -13,20 +13,23 @@ const blueSound = new Audio("sounds/blue.mp3");
 //adding click event listeners to each color button to detect when they are clicked and play the corresponding sound.
 green.addEventListener("click", () => {
   playSound("green");
+  pressed(green);
 });
 
 red.addEventListener("click", () => {
   playSound("red");
+  pressed(red);
 });
 
 yellow.addEventListener("click", () => {
   playSound("yellow");
+  pressed(yellow);
 });
 
 blue.addEventListener("click", () => {
   playSound("blue");
+  pressed(blue);
 });
-
 
 //function to play the sound of the corresponding color.
 const playSound = (color) => {
@@ -45,3 +48,14 @@ const playSound = (color) => {
       break;
   }
 };
+
+const pressed = (color) => {
+  color.classList.add("pressed");
+  setTimeout(() => {
+    color.classList.remove("pressed");
+  }, 100);
+};
+
+
+
+
