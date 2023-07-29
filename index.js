@@ -1,61 +1,30 @@
-// using document.querySelector to select the element with class of each color.
-const green = document.querySelector(".green");
-const red = document.querySelector(".red");
-const yellow = document.querySelector(".yellow");
-const blue = document.querySelector(".blue");
 
-//assigning audio files to const variables.
-const greenSound = new Audio("sounds/green.mp3");
-const redSound = new Audio("sounds/red.mp3");
-const yellowSound = new Audio("sounds/yellow.mp3");
-const blueSound = new Audio("sounds/blue.mp3");
 
-//adding click event listeners to each color button to detect when they are clicked and play the corresponding sound.
-green.addEventListener("click", () => {
-  playSound("green");
-  pressed(green);
+// each button color is saved in an array, which can be used to compare the user's input with the game's pattern.
+const buttonColours = ["red", "blue", "green", "yellow"];
+
+// the game pattern is saved in an array, which can be used to compare the user's input with the game's pattern.
+var gamePattern = [];
+
+// the user's input is saved in an array, which can be used to compare with game pattern.
+var userClickedPattern = [];
+
+// the game's level is saved in a variable to be displayed on the title.
+var level = 0;
+
+// the game's status is saved in a variable to be used to check if the game has started or not.
+var started = false;
+
+
+
+
+
+
+// add detect click event, on this event user's click is registered and the id of the button is saved in a variable, which can be passed on to other fundtions.
+
+document.addEventListener("click", (e) => {
+    if(e.target.matches(".btn")){
+        var userChosenColour = e.target.id;
+
+    }
 });
-
-red.addEventListener("click", () => {
-  playSound("red");
-  pressed(red);
-});
-
-yellow.addEventListener("click", () => {
-  playSound("yellow");
-  pressed(yellow);
-});
-
-blue.addEventListener("click", () => {
-  playSound("blue");
-  pressed(blue);
-});
-
-//function to play the sound of the corresponding color.
-const playSound = (color) => {
-  switch (color) {
-    case "green":
-      greenSound.play();
-      break;
-    case "red":
-      redSound.play();
-      break;
-    case "yellow":
-      yellowSound.play();
-      break;
-    case "blue":
-      blueSound.play();
-      break;
-  }
-};
-
-const pressed = (color) => {
-  color.classList.add("pressed");
-  setTimeout(() => {
-    color.classList.remove("pressed");
-  }, 100);
-};
-
-
-
-
